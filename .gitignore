@@ -247,13 +247,9 @@ gradle-app.setting
 
 /.idea/.gitignore
 /.idea/.name
-/.idea/compiler.xml
-/.idea/jarRepositories.xml
-/.idea/misc.xml
-/.idea/vcs.xml
-/.idea/modules/project-board.main.iml
-/.idea/modules.xml
-/.idea/dataSources.xml
+/.idea/**/*.xml
+/.idea/**/*.iml
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij,gradle,windows,macos,visualstudiocode
+
 
