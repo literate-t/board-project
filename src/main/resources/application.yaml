@@ -8,7 +8,7 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306:board
+    url: jdbc:mysql://localhost:3306/board
     username: tae
     password: test
     driver-class-name: com.mysql.cj.jdbc.Driver
