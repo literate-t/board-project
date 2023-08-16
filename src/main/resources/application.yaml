@@ -29,10 +29,10 @@ spring:
 
 ---
 
-spring:
-  config.activate.on-profile: testdb
+#spring:
+#  config.activate.on-profile: testdb
 #  datasource:
 #    url: jdbc:h2:mem:board;mode=mysql
 #    driver-class-name: org.h2.Driver
 #  sql.init.mode: always
-#  test.database.replace: none
+#  test.database.replace: none # 디폴트 메모리디비를 사용하지 않고 설정한 testdb를 사용할 수 있도록 하는 전역 설정
