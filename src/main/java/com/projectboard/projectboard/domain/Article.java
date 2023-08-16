@@ -2,13 +2,10 @@ package com.projectboard.projectboard.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 
-import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @ToString
@@ -18,22 +15,21 @@ import java.util.Objects;
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy"),
 })
-@Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-//@EqualsAndHashCode // 안 씀
-public class Article {
+@Entity
+public class Article extends BaseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) // MySQL의 auto increment는 identity 방식
     private Long id;
 
     @Setter @Column(nullable = false) private String title;
     @Setter @Column(nullable = false, length = 10000) private String content;
 
+    @ToString.Exclude
     @Setter private String hashtag;
 
-    @CreatedDate @Column(nullable = false, updatable = false) private LocalDateTime createdAt;
-    @CreatedBy @Column(nullable = false, length = 100, updatable = false) private String createdBy;
-    @LastModifiedDate @Column(nullable = false) private LocalDateTime modifiedAt;
-    @LastModifiedBy @Column(nullable = false, length = 100) private String modifiedBy;
+    @OrderBy("id")
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
     private Article(String title, String content, String hashtag) {
         this.title = title;
@@ -41,7 +37,7 @@ public class Article {
         this.hashtag = hashtag;
     }
 
-    private static Article create(String title, String content, String hashtag) {
+    public static Article create(String title, String content, String hashtag) {
         return new Article(title, content, hashtag);
     }
 
