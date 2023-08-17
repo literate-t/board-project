@@ -1,7 +1,7 @@
-package com.projectboard.projectboard.repository;
+package com.projectboard.repository;
 
-import com.projectboard.projectboard.config.JpaConfig;
-import com.projectboard.projectboard.domain.Article;
+import com.projectboard.config.JpaConfig;
+import com.projectboard.domain.Article;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.DisplayName;
