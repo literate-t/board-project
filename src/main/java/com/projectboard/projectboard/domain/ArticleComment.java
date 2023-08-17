@@ -16,7 +16,7 @@ import static jakarta.persistence.FetchType.LAZY;
 })
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ArticleComment extends BaseEntity {
+public class ArticleComment extends AuditingField {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
