@@ -17,16 +17,16 @@ import java.util.Set;
 })
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Article extends BaseEntity {
+public class Article extends AuditingField {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) // MySQL의 auto increment는 identity 방식
     private Long id;
 
     @Setter @Column(nullable = false) private String title;
     @Setter @Column(nullable = false, length = 10000) private String content;
 
-    @ToString.Exclude
     @Setter private String hashtag;
 
+    @ToString.Exclude
     @OrderBy("id")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
