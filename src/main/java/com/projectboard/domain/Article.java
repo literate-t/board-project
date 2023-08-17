@@ -1,4 +1,4 @@
-package com.projectboard.projectboard.domain;
+package com.projectboard.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

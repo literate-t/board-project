@@ -1,4 +1,4 @@
-package com.projectboard.projectboard;
+package com.projectboard;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
