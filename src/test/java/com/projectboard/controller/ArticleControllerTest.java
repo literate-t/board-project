@@ -29,7 +29,6 @@ class ArticleControllerTest {
                     .andExpect(model().attributeExists("articles")); // key가 있는지
     }
 
-    @Disabled("구현 중")
     @DisplayName("[view][GET] - 게시글 상세 페이지 - 정상 호출")
     @Test
     public void detailViewTest() throws Exception {
